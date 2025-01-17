@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Analytics;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -31,5 +32,10 @@ public class PlayerController : MonoBehaviour
     {
         _input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         _direction = new Vector3(_input.x, 0, _input.y);
+    }
+
+    void OnTriggerStay(Collider collision)
+    {
+        Debug.Log("There is contact" + collision.gameObject.name);
     }
 }
